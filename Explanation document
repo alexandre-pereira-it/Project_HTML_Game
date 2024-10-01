@@ -1,0 +1,52 @@
+ESTRUTURA DE JOGO E TECNICAS HTML USADAS
+
+1. Introdução à História:
+O jogo começa com uma introdução narrativa que estabelece o cenário e o contexto. O jogador é apresentado à floresta de Lágrima Verde, um local que está a ser corrompido por uma força desconhecida, e ao protagonista, Líam, um jovem druida que sente a dor da floresta e precisa de descobrir o que está a causar a sua decadência.
+
+Propósito: A introdução estabelece o cenário, o tom e o conflito principal da história, preparando o jogador para as escolhas que estão por vir.
+
+2. Atos:
+O jogo está dividido em Atos, que representam fases da história. Cada ato apresenta uma nova parte da narrativa e dá ao jogador a oportunidade de tomar decisões importantes.
+
+Ato-1: O Chamado da Floresta: O jogador escolhe entre duas opções:
+
+Convocar um velho amigo ranger para ajudar.
+Aceitar a ajuda de um grupo de aventureiros (paladino e clérigo).
+Ato-2: O Conselho da Floresta: O jogador aprende mais sobre a origem da corrupção e faz outra escolha:
+
+Decidir sacrificar o druida capturado para salvar a floresta.
+Procurar um artefacto dracónico para interromper o poder da criatura sombria.
+3. Escolhas e Consequências:
+A estrutura do jogo foca-se em escolhas que o jogador faz, que influenciam o caminho que a história toma. Cada escolha leva a diferentes resultados, com várias ramificações.
+
+Atos Ramificados: Dependendo das escolhas feitas, o jogador segue para diferentes caminhos ou “ramificações” da história. Por exemplo:
+Se escolheres o “Caminho do Sacrifício”, serás levado ao Ato-3.1.
+Se escolheres o “Caminho da Pedra Dracónica”, serás levado ao Ato-3.2.
+Essas escolhas continuam a influenciar os atos subsequentes, criando múltiplos resultados possíveis na história.
+
+4. Formulários de Escolha:
+Para cada decisão, há um formulário ou botão que o jogador clica para avançar na história. Os formulários utilizam o HTML para capturar as decisões do jogador, permitindo-lhes avançar para o próximo ato ou evento com base nas escolhas feitas.
+
+As decisões são implementadas com <details> e <form> onde o jogador pode escolher uma ação.
+Em certos casos, há uma interação adicional onde o jogador precisa rolar um dado virtual (simulador de dados) para determinar o sucesso de uma ação furtiva ou outra decisão crítica.
+5. Sistemas de Combate e Ações:
+Em alguns momentos, o jogo exige que o jogador introduza um número (um valor de um dado de 20 lados) para determinar se a ação foi bem-sucedida. Se o valor for inferior a 10, o jogador poderá ser levado a uma página de luta (fight.html).
+
+Simulador de Dados: Um número entre 1 e 20 determina o sucesso de algumas ações furtivas ou decisivas.
+Opções de Combate: Dependendo do sucesso ou falha, o jogador pode ser conduzido a diferentes caminhos de combate ou resolução.
+6. Inventário:
+O jogador também tem acesso a um inventário visual, que é apresentado em formato de tabela com itens e equipamento que o personagem possui. O inventário parece ser uma funcionalidade secundária, mas permite ao jogador ver o estado do equipamento do personagem.
+
+O inventário inclui um boneco ASCII (arte em texto) que representa o personagem, com ícones para itens como chapéus, espadas, anéis, e botas.
+Há também uma mochila com espaços vazios que podem ser preenchidos com itens durante o jogo.
+7. Conclusão e Diferentes Finais:
+Dependendo das escolhas feitas, o jogador segue diferentes atos que levam a desfechos distintos. Por exemplo:
+
+Ato-6.1: Se o jogador seguir o “Caminho do Sacrifício”, o druida é sacrificado e a floresta é salva, mas a vida do druida é perdida.
+Ato-6.2.1 ou 6.2.2: Se o jogador seguir o “Caminho da Pedra Dracónica”, a história termina com a destruição do artefacto dracónico e a libertação da floresta.
+Conclusão:
+O jogo oferece uma aventura baseada em escolhas onde o jogador decide o destino do protagonista e da floresta corrompida. A estrutura dos atos, com escolhas que ramificam a história, cria uma experiência de múltiplos finais e diferentes caminhos narrativos. A integração do inventário e dos dados adiciona elementos de role-play e combate ao estilo RPG, misturando narração com mecânicas de jogo simples.
+
+DESAFIOS ENFRENTADOS
+
+O maior desafio enfrentado foi a criacao da historia e ramificacoes, a maior parte do codigo foi relativamente intuitivo de aprender especialmente com as ferramentas fornecidas
