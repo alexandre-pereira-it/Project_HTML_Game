@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .combat-section {
+        margin-top: 20px;
+    }
+
+    .action-form {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <main>
+        <!-- fight focused music -->
+        <audio id="fightTrack" controls autoplay loop hidden>
+            <source src="/Static/Audio/TES V Skyrim Soundtrack - Blood and Steel.mp3">
+        </audio>
+        <!-- <a href="index.html" is a temporary way to go back to index while no logic is implemented in the game -->
+        <h1>Sistema de Combate RPG <a href="index.html">back</a> </h1>
+
+        <!-- Character Status Table -->
+        <section>
+            <h2>Status dos Personagens</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Pontos de Vida (HP)</th>
+                        <th>Ataque</th>
+                        <th>Defesa</th>
+                        <th>Iniciativa</th>
+                        <th>Poder Especial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Druida</td>
+                        <td id="hp-druida">100</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>12</td>
+                        <td>Curar a si mesmo (20 HP)</td>
+                    </tr>
+                    <tr>
+                        <td>Ranger</td>
+                        <td id="hp-ranger">90</td>
+                        <td>18</td>
+                        <td>12</td>
+                        <td>14</td>
+                        <td>Tiro Preciso (Dano +5)</td>
+                    </tr>
+                    <tr>
+                        <td>Paladino</td>
+                        <td id="hp-paladino">110</td>
+                        <td>20</td>
+                        <td>14</td>
+                        <td>10</td>
+                        <td>Escudo Divino (Defesa +10 por 1 turno)</td>
+                    </tr>
+                    <tr>
+                        <td>Clérigo</td>
+                        <td id="hp-clerigo">85</td>
+                        <td>14</td>
+                        <td>10</td>
+                        <td>8</td>
+                        <td>Cura Divina (Cura aliado 25 HP)</td>
+                    </tr>
+                    <!-- This row is hidden unless the player comes from Act 5.1.1 -->
+                    <tr>
+                        <td>Druida</td>
+                        <td id="hp-druida_2">50</td>
+                        <td>13</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>Curar a si mesmo (20 HP)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Action Form -->
+        <section class="combat-section">
+            <h2>Ação de Combate</h2>
+            <form class="action-form" id="combatForm">
+                <label for="character">Escolha seu personagem:</label>
+                <select id="character" name="character">
+                    <option value="druida">Druida</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="paladino">Paladino</option>
+                    <option value="clerigo">Clérigo</option>
+                </select><br><br>
+
+                <label for="action">Escolha sua ação:</label>
+                <select id="action" name="action">
+                    <option value="attack">Atacar</option>
+                    <option value="defend">Defender</option>
+                    <option value="special">Usar Poder Especial</option>
+                </select><br><br>
+
+                <label for="target">Escolha o alvo:</label>
+                <select id="target" name="target">
+                    <option value="vilao">Vilão</option>
+                    <option value="druida">Druida</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="paladino">Paladino</option>
+                    <option value="clerigo">Clérigo</option>
+                </select><br><br>
+
+                <input type="submit" value="Executar Ação">
+            </form>
+        </section>
+
+        <!-- Combat Result -->
+        <section>
+            <h2>Resultados</h2>
+            <p id="combatResult">Aguardando ação do jogador...</p>
+        </section>
+    </main>
+</body>
+<!-- Volume control at page start -->
+<script>
+    var x = document.getElementById("fightTrack");
+    x.volume = 0.1;
+</script>
+</html>

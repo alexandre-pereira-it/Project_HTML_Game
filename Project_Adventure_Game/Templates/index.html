@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<style>
+    p {
+        width: 50%;
+    }
+
+    .inv-table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    .inv-table td {
+        border: 1px solid;
+        width: 2em;
+        height: 2em;
+    }
+</style>
+<body>
+    <main>
+        <!-- !!!ALL THE 'ACT-XXX' BEFORE THE TITLE ARE TO BE DELETE ONCE THE GAME IS FUNCTIONAL -->
+        <!-- Since the project does not include logic the game is not functional -->
+        <!-- adventure ready music -->
+        <audio id="ambientTrack" controls autoplay loop hidden>
+            <source src="/Static/Audio/TES V Skyrim Soundtrack - Around the Fire.mp3">
+        </audio>
+        <!-- Introduction -->
+        <section>
+            <h1>A Floresta Corrompida</h1><br>
+            <p>A floresta de Lágrima Verde sempre foi um refúgio de vida e equilíbrio, onde o ciclo
+                da natureza fluía em
+                harmonia sob os olhos vigilantes dos druidas. Era um lugar sagrado, protegido por espíritos ancestrais,
+                onde cada árvore contava histórias antigas, e os animais se moviam como parte de um delicado balé
+                natural. Mas agora, algo mudou.
+
+                Nos últimos meses, uma sombra começou a se arrastar pelas raízes e galhos. As árvores, antes robustas e
+                cheias de vida, começaram a definhar. Os riachos, sempre cristalinos e cheios de energia, tornaram-se
+                escuros e estagnados. Os animais agem de forma errática, seus olhos preenchidos por um brilho doentio, e
+                o ar, que outrora era perfumado com o aroma da terra e das flores, agora cheira a podridão e decadência.
+
+                Entre os guardiões da floresta está Líam, um jovem druida, nascido e criado sob o abrigo dessa natureza
+                outrora próspera. Desde que se lembra, ele pôde sentir a pulsação da floresta como uma extensão de sua
+                própria alma. Mas agora, essa conexão o atormenta. Ele sente a dor da terra em seu coração, como uma
+                febre que não cessa. A floresta, que sempre lhe deu força e sabedoria, agora está morrendo.</p>
+        </section><br>
+        <!-- Act-1 -->
+        <section>
+            <h1>Ato-1: O Chamado da Floresta</h1>
+            <p>O druida sente a dor da floresta onde vive, percebendo que uma doença mortal está se espalhando. As
+                plantas estão secando, os animais agem de forma estranha, e o equilíbrio natural está em risco.</p>
+            <!-- Choice 1 -->
+            <details>
+                <summary>Velhas amizades</summary>
+                <p>O druida convoca seu velho amigo ranger, que o tem acompanhado desde a infância, para ajudá-lo a
+                    investigar o que está acontecendo.</p>
+            </details>
+            <!-- Choice 2 -->
+            <details>
+                <summary>Aventureiros estranhos</summary>
+                <p>Um grupo de aventureiros, um paladino e um clérigo, chega à floresta após ouvir rumores sobre a
+                    doença. Eles oferecem ajuda ao druida e ao ranger.</p>
+            </details><br>
+            <!-- Form to input choices -->
+            <form action="#act_2">
+                <input type="submit" value="Velhas Amizades">
+                <input type="submit" value="Aventureiros estranhos">
+                <a href="#inventory">Inventario</a>
+            </form>
+        </section><br>
+        <!-- Act-2 -->
+        <div id="act_2">
+            <section>
+                <h1>Ato-2 O Conselho da Floresta</h1>
+                <p>O druida se reúne com os espíritos da floresta buscando orientação. Os espíritos revelam que a doença
+                    é causada por uma criatura sombria que capturou um dos druidas locais que o esta a usar como fonte
+                    de
+                    poder</p>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠧⠒⠉⠁⠀⢀⠀⠀⠀⠀⣀⠔⠓⠂⠐⠊⢉⠤⢄⠠⠤⣈⡁⠒⠒⠚⠷⠖⠈⠉⡩⠥⡀⠉⠋⡗⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠉⠀⠀⠀⠀⡠⠊⢃⠀⠐⠋⢀⡀⠀⠀⢠⠔⠊⠀⠀⠀⠀⠀⠑⢄⠀⠀⠃⠀⠀⠞⠀⠀⠑⢄⠀⠃⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠝⠂⠀⠀⠀⡠⠊⠁⠀⠈⡄⠀⠀⡇⠀⠑⠀⢸⠄⠀⠀⠀⠀⡠⠤⢀⠈⡀⠀⠲⠀⢰⠀⠀⠀⠀⠈⡧⢀⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠖⠃⠀⠀⠀⠀⡐⠁⠀⠀⠀⠀⠠⠠⠊⠀⣀⣀⠄⠊⠀⠀⠀⠀⡜⠀⠀⠀⠑⢼⡀⠀⠀⡌⠀⠀⠀⠀⠀⢨⢄⠈⢢⣄⠀⠑⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⠞⠁⠀⠀⡠⠊⠉⢈⠠⠴⠊⢢⠀⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠠⠋⠈⠁⠀⠀⠀⢀⠘⡈⢢⠜⠀⠀⠀⠀⠀⠀⠀⠑⠠⠈⠢⠑⠄⡀⠀⠁⠒⠠⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⢀⠎⠀⡰⠒⠁⠀⠀⠀⢠⠂⠀⠑⠐⠒⠀⠐⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠎⠑⢲⡀⠀⠀⠀⠀⠀⣠⠤⡀⠀⠀⠀⠀⠀⣀⣈⠡⠈⠦⣤⡀⠡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣖⠯⠐⠀⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠘⠆⠀⠀⠀⠀⠀⠀⠈⠃⠀⢀⡠⠐⠂⠘⠀⢀⠎⠀⠀⠀⠀⠉⠅⠐⠢⡀⠀⠀⠈⠂⠒⠂⠠⠤⡀⠀⠓⡄⠀⠀⣘⡂⣣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⡏⠄⠀⠀⠀⠀⠀⢀⣂⠁⠀⠀⠀⠀⠀⢀⡀⠘⠂⠀⠐⠒⠢⢀⠀⠀⠈⠉⡤⢀⡀⠀⠀⠋⠀⠀⣀⣀⠀⠀⠀⠀⠀⠈⠒⠀⠀⠀⠀⠀⠀⠀⠈⠂⠴⠀⠀⠀⠀⠀⠀⠡⠑⠦⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢧⡡⠐⢄⠢⠤⡤⠒⠪⠉⠐⢄⠀⠀⢀⡠⡎⡑⠠⠀⡠⠂⠀⠠⢈⣦⡄⡀⠀⢱⠈⠁⠂⠀⠀⠤⠔⡉⠉⠂⠀⠀⠀⢀⠀⠀⠀⡀⠤⠠⠤⢀⠀⠀⠀⠀⠀⢀⣀⠠⡤⡴⡖⠒⠂⣹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠒⠛⠳⠶⠥⠖⢬⢲⣦⠵⢤⡨⢆⣈⣁⣀⢡⡐⣄⢣⡐⡄⠀⢢⡀⠸⢿⣴⣕⣂⡀⠀⡇⠀⠀⠀⠀⣇⠤⢒⣓⣀⡤⠄⡷⠶⢡⡤⣤⡶⡶⢬⡿⢿⠭⢝⣿⣛⣷⣾⣿⡕⢴⠥⠒⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠺⠦⢤⣌⢒⠠⠄⡘⣭⣍⠻⣛⣳⣾⣅⣀⡈⠽⣧⣼⠢⣙⣿⣮⠂⢄⡀⠀⢠⣷⣜⠫⣟⣗⠠⡾⠊⣀⣠⠿⠴⠿⡻⠉⣰⣥⣔⣥⠶⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠐⠺⢍⣛⣛⣟⣿⣿⣿⣦⠹⠷⢶⡈⡛⠺⣾⡿⣿⠒⣛⣿⠭⣿⡿⢻⣏⣠⡾⠟⡳⠏⠕⢉⣰⣮⣴⠞⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠷⢤⢹⢳⢳⢿⡝⡟⠥⠜⡟⢡⣾⡻⣶⢿⣯⠶⠿⠛⠛⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠹⣟⠂⡎⣯⠸⣸⢱⣇⢬⣼⣷⡏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣷⠉⠃⡇⢾⡈⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⢏⡌⣰⣿⣿⠧⡸⣎⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣸⣿⣏⣼⣿⣠⡙⡟⢿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠏⡾⢹⢿⣇⢋⣾⢱⣜⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣯⡟⣽⡿⣜⢮⣉⠚⡁⣨⣯⣿⡻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⠏⣱⠟⣴⣯⣄⣩⣙⣻⣬⣘⣌⠿⡿⢷⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⢀⢤⠀⠀⢀⣼⣫⣵⣯⣇⣰⣯⣾⣿⣿⣴⣴⣛⣾⣿⣬⣛⡛⠾⡳⢷⣍⣛⠶⣤⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣰⣶⣷⠶⢿⡿⠾⠟⣫⠿⣟⣩⠿⡽⠛⢹⣿⣿⣿⣿⡜⠺⢀⠝⢻⣄⠻⢿⣷⠿⣿⣯⣙⡟⣾⣿⣿⡟⠛⠿⡿⠿⠟⠛⠶⡛⣳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣔⣻⡿⣿⣿⣿⣿⣷⣾⣚⣀⣤⠾⢿⡞⢋⠼⠞⢀⣴⣿⢿⣿⣿⣆⡣⠙⠬⠒⢬⣜⣧⣢⣙⣷⢿⣿⣿⣿⡿⠿⠿⣿⢿⣯⣭⣁⣶⣖⣒⣺⣖⠛⠛⢾⣿⣶⣶⣶⣶⣶⣶⣶⣶⣦⣄⣀⣀⣀⠀⠀⠀⠀⠀⠀
+                ⠠⠤⠤⠴⠶⣶⠶⣾⣶⣶⣶⣶⣶⡾⠿⢿⣿⣿⣿⣿⣯⣤⣾⠿⠿⣿⣿⣷⣿⣷⣾⣷⡶⠾⣛⣻⣿⣿⣿⣿⣶⣿⣭⣿⣿⣶⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣟⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠷⠤⠬⠭⠥⠤⠤⠤⠄
+                ⠀⠀⠀⠀⠐⠛⠒⠉⠩⠽⣿⣿⣯⣥⣤⣬⣿⣿⣿⣿⣙⡛⠋⠀⠀⠉⠉⠉⠍⠩⠉⠩⠥⠤⠩⠭⠩⠯⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠩⣉⣉⣉⣉⣉⣉⣉⡉⠉⠉⠉⠉⠩⠭⠭⠉⠛⠋⠋⠛⠙⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠉⠁⠈⠁⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                <!-- Choice 1 -->
+                <details>
+                    <summary>Sacrificios necessarios</summary>
+                    <p>Apos deliberação os aventureiros e os espiritos decidiram que o peso da vida da floresta e mais
+                        importante que a vida do druida</p>
+                </details>
+                <!-- Choice 2 -->
+                <details>
+                    <summary>Pedra draconica</summary>
+                    <p>Um antigo artefato dracônico pode estar por detras da vida da criatura, existindo a possibilidade
+                        de
+                        pararem o espirito se a destruirem</p>
+                </details><br>
+                <!-- Form to input choices -->
+                <form action="#act_3.1">
+                    <input type="submit" value="Sacrificios necessarios">
+                    <input type="submit" formaction="#act_3.2" value="Pedra draconica">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 1 Act-3 -->
+        <div id="act_3.1">
+            <section>
+                <h1>Ato-3.1 O Caminho do Sacrificio</h1>
+                <p>O grupo decide que sacrificar o druida capturado é a única maneira de salvar a floresta. O peso da
+                    decisão afeta cada membro de forma diferente, mas nenhuma outra opcao pareceu certa.</p>
+                <pre>
+                    ⠀⠀⠀ ⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣷⣄⠙⠛⠛⠿⠿⠿⠟⢁⡄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⠘⠛⠿⢿⣿⠿⠻⣿⣿⣿⣿⣶⣶⣶⣦⣴⣿⣷⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣷⣶⣤⣤⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀
+⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢋⣀⠈⢿⣿⡟⢻⣿⣿⠀
+⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⣠⣤⣼⣿⣿⠀
+⠀⠀⠀⢀⣠⣤⠈⠿⠿⠟⢋⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⠀⠐⣿⣿⣿⣷⣶⣤⣶⣿⣿⣿⣿⣿⣿⠟⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠙⠻⠿⠿⠿⣿⡿⣿⣿⣿⠀
+⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⠛⠀⠀⠀⠀⠀⠀⢤⣶⣦⣀⣤⣿⣿⣿⠀
+⠀⣠⣾⣿⡿⠿⠿⠿⠛⠋⠙⠋⠀⠸⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⣿⣿⣿⣿⣶⣶⣶⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⢋⣡⠀
+⠀⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠛⠛⠛⠛⠛⠛
+                </pre>
+                <!-- Choice 1 -->
+                <details>
+                    <summary>Entrada do covil surrateira</summary>
+                    <p>O grupo encontra-se na presenca do covil da criatura sombria onde o druida está mantido preso. A
+                        atmosfera é
+                        sufocante, e as criaturas corrompidas patrulham a entrada. Os aventureiros tentam entrar sem
+                        alertar os guardas do covil
+                        (Use um simulador de dados para simular um dado de 20 lados e incira o resultado na caixa de
+                        texto)</p>
+                </details>
+                <!-- Choice 2 -->
+                <details>
+                    <summary>Entrada do covil forçada</summary>
+                    <p>O grupo encontra-se na presenca do covil da criatura sombria onde o druida está mantido preso. A
+                        atmosfera é sufocante, e as criaturas corrompidas patrulham a entrada. Sem perder tempo os
+                        aventureiros
+                        correm na direçao das criaturas</p>
+                </details><br>
+                <!-- Form to input choices -->
+                <form action="#">
+                    <!-- if result >10 proceed to Act 4.1, if result <10 Go to fight.html -->
+                    <label for="stealth_roll_act_3_1">Entrada do covil sorrateira: </label>
+                    <input type="number" id="stealth_roll_act_3_1" name="stealth_roll_act_3_1" min="1" max="20" required>
+                    <input type="submit" value="Tentar"><br>
+                </form>
+                <form action="fight.html">
+                    <input type="submit" value="Entrada do covil forçada">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div><br>
+        <!-- Branch 1 Act-4 -->
+        <div id="act_4.1">
+            <section>
+                <h1>Ato-4.1 Ritual Sombrio</h1>
+                <p>O grupo entra com sucesso no covil, e ao centro encontram-se com o corpo do druida suspenso por
+                    correntes, energias malignas saiem do seu corpo na direçao de um mago das trevas</p>
+                <!-- Choice 1 -->
+                <details>
+                    <summary>Correntes das sombras</summary>
+                    <p>O grupo entende que a melhor soluçao e cortar as correntes
+                        para parar o consumo de poder. O grupo começa entao a mover-se sorrateiramente ate as correntes.
+                    </p>
+                </details>
+                <!-- Choice 2 -->
+                <details>
+                    <summary>Morte do Mago das trevas</summary>
+                    <p>O grupo entra com sucesso no covil, e ao centro encontram-se com o corpo do druida suspenso por
+                        correntes, energias malignas saiem do seu corpo na direçao de um mago das trevas. O grupo avança
+                        contra o mago para tentar terminar com a sua vida de imediato</p>
+                </details><br>
+                <!-- Form to input choices -->
+                <form action="#">
+                    <!-- if result >10 proceed to Act 5.1.1, if result <10 Go to fight.html -->
+                    <label for="stealth_roll_act_4_1">Correntes das sombras: </label>
+                    <input type="number" id="stealth_roll_act_4_1" name="stealth_roll_act_4_1" min="1" max="20" required>
+                    <input type="submit" value="Tentar"><br>
+                </form>
+                <form action="fight.html">
+                    <input type="submit" value="Morte do mago das trevas">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 1 Act-5.1 -->
+        <div id="act_5.1.1">
+            <!-- If fight.html is opne by this section form input, a new row is shown on the Character status table for the druid -->
+            <section>
+                <h1>Ato-5.1.1 Luta final</h1>
+                <p>Apos libertar com sucesso o druida das correntes, uma nova alianca e formada, o grupo de aventureiros
+                    juntamente com o druida fragilizado enfrentam o mago agora enfraquecido</p>
+                <form action="fight.html">
+                    <input type="submit" value="Lutar">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 1 Act-6 -->
+        <div id="act_6.1">
+            <section>
+                <h1>Ato-6.1 A morte do druida e a vida que trouxe</h1>
+                <p>Com o ritual interrompido, e o mago morto, o covil começa a colapsar, ao sair da caverna, os
+                    aventureiros deparam-se com uma floresta cheia de vida, mas infelizmente, o druida nao sobreviveu, a
+                    sua vida perdida no processo de parar o mago</p>
+                <h1>FIM</h1>
+            </section>
+        </div><br>
+        <!-- Branch 2 Act-3 -->
+        <div id="act_3.2">
+            <section><br>
+                <h1>Ato-3.2 O Caminho da Pedra Dracônica</h1>
+                <p>O grupo decide buscar e destruir a pedra dracônica, acreditando que este artefato pode libertar o
+                    druida e
+                    interromper a corrupção na floresta.</p>
+                <!-- Choice 1 -->
+                <details>
+                    <summary>Bifurcaçao na estrada (Direita)</summary>
+                    <p>Os aventureiros encontram uma bifurcaçao na estrada, apos alguma deliberaçao escolhem o caminho
+                        da direita</p>
+                </details>
+                <!-- Choice 2 -->
+                <details>
+                    <summary>Bifurcaçao na estrada (Esquerda)</summary>
+                    <p>Os aventureiros encontram uma bifurcaçao na estrada, apos alguma deliberaçao escolhem o caminho
+                        da esquerda</p>
+                </details>
+                <form action="#act_4.2">
+                    <input type="submit" value="Direita">
+                    <!-- if choose this path send a message saying that the party encountered an enemy -->
+                    <input type="submit" formaction="fight.html" value="Esquerda">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 2 Act-4 -->
+        <div id="act_4.2">
+            <section>
+                <h3>Ato-4.2 Caçada ao Artefato</h3>
+                <p>O grupo viaja para as profundezas da floresta, seguindo pistas antigas e lutando contra criaturas
+                    corrompidas para localizar a caverna onde o artefato dracônico está escondido.</p>
+                <pre>
+                    ⠀⠀⠀ ⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣷⣄⠙⠛⠛⠿⠿⠿⠟⢁⡄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⠘⠛⠿⢿⣿⠿⠻⣿⣿⣿⣿⣶⣶⣶⣦⣴⣿⣷⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣷⣶⣤⣤⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀
+⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢋⣀⠈⢿⣿⡟⢻⣿⣿⠀
+⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⣠⣤⣼⣿⣿⠀
+⠀⠀⠀⢀⣠⣤⠈⠿⠿⠟⢋⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⠀⠐⣿⣿⣿⣷⣶⣤⣶⣿⣿⣿⣿⣿⣿⠟⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠙⠻⠿⠿⠿⣿⡿⣿⣿⣿⠀
+⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⠛⠀⠀⠀⠀⠀⠀⢤⣶⣦⣀⣤⣿⣿⣿⠀
+⠀⣠⣾⣿⡿⠿⠿⠿⠛⠋⠙⠋⠀⠸⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⣿⣿⣿⣿⣶⣶⣶⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⢋⣡⠀
+⠀⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠛⠛⠛⠛⠛⠛
+                </pre>
+                <!-- Choice 1 -->
+                <details>
+                    <summary>Caverna do Dragao, Entrada Sorrateira</summary>
+                    <p>O grupo encontra-se na entrada da caverna onde o artefato se encontra, criaturas corrompidas
+                        patrulham a area, os aventureiros decidem que evitar conflitos e o melhor caminho ma seguir
+                        (Use um simulador de dados para simular um dado de 20 lados e incira o resultado na caixa de
+                        texto)</p>
+                </details>
+                <!-- Choice 2 -->
+                <details>
+                    <summary>Caverna do Dragao, Sem tempo a perder</summary>
+                    <p>O grupo encontra-se na entrada da caverna onde o artefato se encontra, criaturas corrompidas
+                        patrulham a area, a atmosfera pesada que se formou ao redor da caverna exorta o grupo a agir
+                        rapidamente, atacando as criaturas no seu caminho</p>
+                </details><br>
+                <form action="#act_5.2">
+                    <!-- If stealth roll <10 then fight.html; if stealth roll =>10 then act_5.2 -->
+                    <label for="stealth_roll_act_5_2">Entrar Sorrateiramente:</label>
+                    <input type="number" id="stealth_roll_act_5_2" name="stealth_roll_act_5_2" min="1" max="20" required>
+                    <input type="submit" value="Tentar"><br>
+                </form>
+                <form action="fight.html">
+                    \<input type="submit" value="Lutar">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 2 Act-5 -->
+        <div id="act_5.2">
+            <section>
+                <h1>Ato-5.2 Guarda do Artefato</h1>
+                <details>
+                    <summary>Roubar o Artefato</summary>
+                    <p>Dentro da caverna, eles encontram a pedra dracônica guardada por um poderoso dragao corrompido, o
+                        grupo discute a possibilidade de derrotar o dragao, mas a presença do mesmo pesa no ar, com medo
+                        da derrota o grupo tenta roubar o artefato sem lutar</p>
+                </details>
+                <details>
+                    <summary>Enfrentar o Dragao</summary>
+                    <p>Dentro da caverna, eles encontram a pedra dracônica guardada por um poderoso dragao corrompido, o
+                        grupo discute a possibilidade de derrotar o dragao e com coragem no coraçao, eles enfrentam o
+                        dragao</p>
+                </details>
+                <form action="#act_6.2.1">
+                    <!-- If stealth roll <15 then fight.html; if stealth roll =>15 then act_6.2.1 -->
+                    <!-- If either fight or stealth roll <15 fight.html, when returning from fight.html got to act_6.2.2 -->
+                    <label for="stealth_roll_act_6_2">Roubar Artefato:</label>
+                    <input type="number" id="stealth_roll_act_6_2" name="stealth_roll_act_6_2" min="1" max="20" required>
+                    <input type="submit" value="Tentar"><br>
+                </form>
+                <form action="fight.html">
+                    <input type="submit" value="Lutar">
+                    <a href="#inventory">Inventario</a>
+                </form>
+            </section>
+        </div>
+        <!-- Branch 2 Act-6 -->
+        <div id="act_6.2.1">
+            <section>
+                <h1>Ato-6.2.1 Destruiçao do Artefato</h1>
+                <p>Apos os aventureiros conseguirem roubar o artefato, eles escapam da caverna e encontram-se com a sua
+                    missao final, eles dirigem-se ate ao covil da criatura sombria, onde o druida se encontra e
+                    enterrompem o ritual, destruindo a pedra dracônica</p>
+            </section>
+        </div><br>
+        <!-- Branch 2 Act-6 -->
+         <div id="act_6.2.2">
+            <section>
+                <h1>Ato-6.2.2 Destruiçao do Artefato</h1>
+                <p>Apos os aventureiros derrotarem o dragao corrompido, eles escapam da caverna e encontram-se com a sua
+                    missao final, eles dirigem-se ate ao covil da criatura sombria, onde o druida se encontra e
+                    enterrompem o ritual, destruindo a pedra dracônica</p>
+            </section>
+         </div>
+        <!-- Inventory -->
+        <section><br>
+            <div id="inventory">
+                <h3>Inventario</h3>
+                <pre>
+   .eec.              .e$$$c
+  z$*"*$$eec..       zP  .3$c
+ .$"  d$"  """****bee*=*"" *$ 
+ $%  d$$                   ^$%
+.$  z$%$bc.                 $% 
+4F 4$" $"^$*ec..  .ee.    ./" b
+dF $P  P  F   """""3F""""""   4
+3b4$   "           $F         4                              
+ ^$F   .......     $F        .F
+  $"  z"     ^"""""$F"""""""""%.
+ 4$  4F     e      $L          ".
+ 4F  ^L    4$     z%"c    *.    b  
+ d    ^$*=e$$eer=$"  "be..JL..ee*
+ $     $   $F    $   zP   4P   F
+ F     F   $F    4. .P    d%  J
+4%     F   $F     F $"   zP   P
+J      F   '%     Fd"   4P   4"
+$      L         .$         4%  
+*      '.       .$$.       .$
+'       ^"****"""  "*******$"
+*c                     .@
+^"%4c...        ...zed*
+      ^""""""""
+                </pre>
+                <table class="inv-table">
+                    <tr>
+                        <th colspan="3">Personagem</th>
+                    </tr>
+                    <tr>
+                        <td>🧢</td>
+                        <td rowspan="5">
+                            <pre>
+ o 
+/|\
+/ \
+</pre>
+                        </td>
+                        <td>🕶️</td>
+                    </tr>
+                    <tr>
+                        <td>👕</td>
+                        <td>🧤</td>
+                    </tr>
+                    <tr>
+                        <td>🗡️</td>
+                        <td>🛡️</td>
+                    </tr>
+                    <tr>
+                        <td>💍</td>
+                        <td>💍</td>
+                    </tr>
+                    <tr>
+                        <td>👖</td>
+
+                        <td>👞</td>
+                    </tr>
+                </table><br>
+                <table class="inv-table">
+                    <tr>
+                        <th colspan="6">Mochila</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+<!-- Volume control at page start  -->
+<script>
+    var x = document.getElementById("ambientTrack");
+    x.volume = 0.1;
+</script>
+</html>
